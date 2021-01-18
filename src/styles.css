@@ -137,6 +137,8 @@ html {
 .todos {
   display: flex;
   flex-direction: column;
+
+  min-height: 500px;
 }
 
 .todo {
@@ -146,15 +148,17 @@ html {
   /* flex grow 1, flex ring 0, flex basis auto */
   text-align: center;
 
-  min-height: 34px;
+  max-height: 34px;
   margin: 16px 0 0;
   font-family: "Homemade Apple", sans-serif;
   font-size: 24px;
 
-  border-bottom: 1px solid var(main-red-color);
+  border-bottom: 1px solid var(--main-red-color);
 }
 
 .todo-text {
+  width: 100%;
+  height: 50px;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
