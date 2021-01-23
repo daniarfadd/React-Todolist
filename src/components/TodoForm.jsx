@@ -19,7 +19,7 @@ const TodoForm = ({ addTodo }) => {
     }
 
     addTodo(value);
-    alert(value);
+
     setValue("");
     // agar setelah klik add form jadi kosong
   };

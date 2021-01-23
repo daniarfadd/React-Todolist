@@ -15,8 +15,8 @@ const Todos = ({ todos }) => {
   // ini merupakan dummy objects yang berupa array of object
   return (
     <section class="todos">
-      {todos.map((todo) => {
-        return <Todo text={todo.text} />;
+      {todos.map((todo, index) => {
+        return <Todo key={index} text={todo.text} />;
       })}
     </section>
   );

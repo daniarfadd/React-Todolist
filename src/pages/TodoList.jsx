@@ -11,10 +11,17 @@ const TodoList = () => {
     { text: "Parariow darow " }
   ]);
 
+  const addTodo = (value) => {
+    const addedTodo = [...todos, { text: value }];
+    // ...todos adalah spread operator, yang berarti kita membuat array baru yang isinya apapun yang ada didalam 'todos', dan ditambah text yang berisi value (objek baru)
+
+    setTodos(addedTodo);
+  };
+
   return (
     <Paper>
       <Header />
-      <TodoForm />
+      <TodoForm addTodo={addTodo} />
       <Todos todos={todos} />
     </Paper>
   );
