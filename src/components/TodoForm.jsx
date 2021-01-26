@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // useState berfungsi sebagai state untuk functional component (mini database)
 import PropTypes from "prop-types";
 
-const TodoForm = ({ addTodo }) => {
+const TodoForm = ({ addTodo, showAdd }) => {
   const [value, setValue] = useState("");
   // value adalah sebuah variabel dalam array yang akan berisi
   // input dari form kita
@@ -24,24 +24,28 @@ const TodoForm = ({ addTodo }) => {
     // agar setelah klik add form jadi kosong
   };
   // ini adalah function yg nantinya akan digunakkan ketika user meng-add todo nya, dia akan meng submit pada sebuah state diluar dari todoform ini
-
-  return (
-    <section class="add">
-      <form action="" class="add-form" onSubmit={handleFormSubmit}>
-        <input
-          type="text"
-          class="add-input"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <button class="add-btn main-black-color">Add</button>
-      </form>
-    </section>
-  );
+  if (showAdd) {
+    return (
+      <section class="add">
+        <form action="" class="add-form" onSubmit={handleFormSubmit}>
+          <input
+            type="text"
+            class="add-input"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+          <button class="add-btn main-black-color">Add</button>
+        </form>
+      </section>
+    );
+  } else {
+    return null;
+  }
 };
 
 TodoForm.propTypes = {
-  addTodo: PropTypes.func.isRequired
+  addTodo: PropTypes.func.isRequired,
+  showAdd: PropTypes.bool.isRequired
 };
 
 export default TodoForm;

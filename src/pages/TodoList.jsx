@@ -11,6 +11,9 @@ const TodoList = () => {
     { text: "Parariow darow " }
   ]);
 
+  const [showAdd, setShowAdd] = useState(false);
+  // untuk menyembunyikan "add" button
+
   const addTodo = (value) => {
     const addedTodo = [...todos, { text: value }];
     // ...todos adalah spread operator, yang berarti kita membuat array baru yang isinya apapun yang ada didalam 'todos', dan ditambah text yang berisi value (objek baru)
@@ -18,10 +21,12 @@ const TodoList = () => {
     setTodos(addedTodo);
   };
 
+  const showAddToggle = () => setShowAdd(!showAdd);
+
   return (
     <Paper>
-      <Header />
-      <TodoForm addTodo={addTodo} />
+      <Header showAddToggle={showAddToggle} />
+      <TodoForm addTodo={addTodo} showAdd={showAdd} />
       <Todos todos={todos} />
     </Paper>
   );
