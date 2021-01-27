@@ -7,16 +7,24 @@ import Todos from "../components/Todos";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([
-    { text: "Learning React !" },
-    { text: "Parariow darow " }
+    { text: "Learning React !", isCompleted: false },
+    { text: "Parariow darow ", isCompleted: false }
   ]);
 
   const [showAdd, setShowAdd] = useState(false);
   // untuk menyembunyikan "add" button
 
   const addTodo = (value) => {
-    const addedTodo = [...todos, { text: value }];
+    const addedTodo = [...todos, { text: value, isCompleted: false }];
     // ...todos adalah spread operator, yang berarti kita membuat array baru yang isinya apapun yang ada didalam 'todos', dan ditambah text yang berisi value (objek baru)
+
+    setTodos(addedTodo);
+  };
+
+  const completeTodo = (index) => {
+    const addedTodo = [...todos];
+
+    addedTodo[index].isCompleted = !addedTodo[index].isCompleted;
 
     setTodos(addedTodo);
   };
@@ -27,7 +35,7 @@ const TodoList = () => {
     <Paper>
       <Header showAddToggle={showAddToggle} showAdd={showAdd} />
       <TodoForm addTodo={addTodo} showAdd={showAdd} />
-      <Todos todos={todos} />
+      <Todos todos={todos} completeTodo={completeTodo} />
     </Paper>
   );
 };
