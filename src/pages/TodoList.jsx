@@ -15,10 +15,14 @@ const TodoList = () => {
   // untuk menyembunyikan "add" button
 
   const addTodo = (value) => {
-    const addedTodo = [...todos, { text: value, isCompleted: false }];
-    // ...todos adalah spread operator, yang berarti kita membuat array baru yang isinya apapun yang ada didalam 'todos', dan ditambah text yang berisi value (objek baru)
-
-    setTodos(addedTodo);
+    if (todos.length < 10) {
+      const addedTodo = [...todos, { text: value, isCompleted: false }];
+      // ...todos adalah spread operator, yang berarti kita membuat array baru yang isinya apapun yang ada didalam 'todos', dan ditambah text yang berisi value (objek baru)
+      setTodos(addedTodo);
+      return;
+    } else {
+      alert("Cuman boleh 10 ya ! ");
+    }
   };
 
   const completeTodo = (index) => {
@@ -29,11 +33,17 @@ const TodoList = () => {
     setTodos(addedTodo);
   };
 
+  const clearTodos = () => setTodos([]);
+
   const showAddToggle = () => setShowAdd(!showAdd);
 
   return (
     <Paper>
-      <Header showAddToggle={showAddToggle} showAdd={showAdd} />
+      <Header
+        showAddToggle={showAddToggle}
+        showAdd={showAdd}
+        clearTodos={clearTodos}
+      />
       <TodoForm addTodo={addTodo} showAdd={showAdd} />
       <Todos todos={todos} completeTodo={completeTodo} />
     </Paper>

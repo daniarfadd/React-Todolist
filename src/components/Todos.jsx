@@ -15,17 +15,24 @@ const Todos = ({ todos, completeTodo }) => {
   // ini merupakan dummy objects yang berupa array of object
   return (
     <section class="todos">
-      {todos.map((todo, index) => {
-        return (
-          <Todo
-            key={index}
-            text={todo.text}
-            isCompleted={todo.isCompleted}
-            completeTodo={completeTodo}
-            index={index}
-          />
-        );
-      })}
+      {todos.length > 0 &&
+        todos.map((todo, index) => {
+          return (
+            <Todo
+              key={index}
+              text={todo.text}
+              isCompleted={todo.isCompleted}
+              completeTodo={completeTodo}
+              index={index}
+            />
+          );
+        })}
+      {todos.length === 0 && (
+        <div className="todo-placeholder-text">
+          Add todo by clicking{" "}
+          <span className="add-button-placeholder-text">ADD</span> button
+        </div>
+      )}
     </section>
   );
 };
