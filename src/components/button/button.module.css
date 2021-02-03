@@ -1,0 +1,40 @@
+/* pada CSS ini menggunakan camel case bukan kebab case */
+
+.mainRedColor {
+  color: var(--main-red-color);
+}
+
+.mainBlackColor {
+  color: var(--main-black-color);
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.headerBtn {
+  font-size: 1.8rem;
+  /* rem berarti 18px karena pada html tag kita menggunakan 10px
+  jika kita pakai 2 rem maka sebenarnya itu 20px karena 2x10px(yang ada di tag HTML) */
+  font-family: "Bungee", sans-serif;
+  padding: 16px;
+  width: 24%;
+
+  background: unset;
+  /* menghilangkan background */
+  border: unset;
+  cursor: pointer;
+  outline: unset;
+}
+
+.headerBtn.mainRedColor:active {
+  text-shadow: 1px 1px 2px var(--main-red-color);
+}
+/* Memeberi efek bayangan saat button add dan clear di klik */
+.headerBtn.mainBlackColor:active {
+  text-shadow: 1px 1px 2px var(--main-black-color);
+}

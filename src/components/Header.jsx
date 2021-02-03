@@ -1,17 +1,25 @@
 import React from "react";
 // mengimport react dari library react
 import PropTypes from "prop-types";
+import Button from "../components/button/Button";
 
 const Header = ({ showAddToggle, showAdd, clearTodos }) => {
   return (
-    <section class="header">
-      <button class="header-btn main-black-color" onClick={showAddToggle}>
+    <section className="header">
+      {/* <button className="header-btn main-black-color" onClick={showAddToggle}>
         {showAdd ? "Hide" : "Add"}
-      </button>
-      <h1 class="header-title">Todo List</h1>
-      <button class="header-btn main-red-color" onClick={clearTodos}>
+      </button> */}
+      <Button
+        text={showAdd ? "Hide" : "Add"}
+        color="black"
+        onClick={showAddToggle}
+        align="left"
+      />
+      <h1 className="header-title">Todo List</h1>
+      {/* <button className="header-btn main-red-color" onClick={clearTodos}>
         Clear
-      </button>
+      </button> */}
+      <Button text="Clear" color="red" onClick={clearTodos} align="right" />
     </section>
   );
 };
