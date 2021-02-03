@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // mengimport react dari library react
 // useState berfungsi sebagai state untuk functional component (mini database)
 import PropTypes from "prop-types";
+import styles from "./todoform.module.css";
 
 const TodoForm = ({ addTodo, showAdd }) => {
   const [value, setValue] = useState("");
@@ -32,15 +33,15 @@ const TodoForm = ({ addTodo, showAdd }) => {
   // ini adalah function yg nantinya akan digunakkan ketika user meng-add todo nya, dia akan meng submit pada sebuah state diluar dari todoform ini
   if (showAdd) {
     return (
-      <section class="add">
-        <form action="" class="add-form" onSubmit={handleFormSubmit}>
+      <section className={styles.add}>
+        <form action="" className={styles.addForm} onSubmit={handleFormSubmit}>
           <input
             type="text"
-            class="add-input"
+            className={styles.addInput}
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
-          <button class="add-btn main-black-color">Add</button>
+          <button className={styles.addBtn}>Add</button>
         </form>
       </section>
     );

@@ -1,11 +1,12 @@
 import React from "react";
 // mengimport react dari library react
 import PropTypes from "prop-types";
+import styles from "./paper.module.css";
 
 const Paper = ({ children }) => {
   return (
-    <div className="container">
-      <div className="frame">{children}</div>
+    <div className={styles.container}>
+      <div className={styles.frame}>{children}</div>
     </div>
   );
 };

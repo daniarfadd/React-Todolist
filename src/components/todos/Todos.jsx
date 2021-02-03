@@ -1,7 +1,8 @@
 import React from "react";
 // mengimport react dari library react
-import Todo from "./Todo";
+import Todo from "../todo/Todo";
 import PropTypes from "prop-types";
+import styles from "./todos.module.css";
 
 const Todos = ({ todos, completeTodo }) => {
   // const todos = [
@@ -14,7 +15,7 @@ const Todos = ({ todos, completeTodo }) => {
   // ];
   // ini merupakan dummy objects yang berupa array of object
   return (
-    <section class="todos">
+    <section className={styles.todos}>
       {todos.length > 0 &&
         todos.map((todo, index) => {
           return (
@@ -28,9 +29,9 @@ const Todos = ({ todos, completeTodo }) => {
           );
         })}
       {todos.length === 0 && (
-        <div className="todo-placeholder-text">
+        <div className={styles.todoPlaceholderText}>
           Add todo by clicking{" "}
-          <span className="add-button-placeholder-text">ADD</span> button
+          <span className={styles.addButtonPlaceholderText}>ADD</span> button
         </div>
       )}
     </section>
